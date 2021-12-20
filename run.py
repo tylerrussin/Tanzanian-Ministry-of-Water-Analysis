@@ -7,15 +7,14 @@ from dash.dependencies import Input, Output
 
 # Imports from this application
 from app import app, server
-from pages import index, predictions, insights, process
+from pages import index, predictions, competition, process
 
-# Navbar docs: https://dash-bootstrap-components.opensource.faculty.ai/l/components/navbar
 navbar = dbc.NavbarSimple(
-    brand='YOUR APP NAME',
+    brand='Tanzanian Ministry of Water Data Analysis',
     brand_href='/', 
     children=[
         dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')), 
-        dbc.NavItem(dcc.Link('Insights', href='/insights', className='nav-link')), 
+        dbc.NavItem(dcc.Link('Competition', href='/competition', className='nav-link')), 
         dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link')), 
     ],
     sticky='top',
@@ -35,11 +34,28 @@ footer = dbc.Container(
         dbc.Col(
             html.P(
                 [
-                    html.Span('Your Name', className='mr-2'), 
-                    html.A(html.I(className='fas fa-envelope-square mr-1'), href='mailto:<you>@<provider>.com'), 
-                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/<you>/<repo>'), 
-                    html.A(html.I(className='fab fa-linkedin mr-1'), href='https://www.linkedin.com/in/<you>/'), 
-                    html.A(html.I(className='fab fa-twitter-square mr-1'), href='https://twitter.com/<you>'), 
+                    html.Span('Tyler Russin', className='mr-2'), 
+                    html.A(html.I(className='fas fa-envelope-square mr-1'), href='mailto:tylerrussin2@gmail.com', style={
+                                                                                                                        "padding-top": "2px",
+                                                                                                                        "padding-right": "2px",
+                                                                                                                        "padding-bottom": "2px",
+                                                                                                                        "padding-left": "10px",
+                                                                                                                        "color": "rgb(17,157,255)"
+                                                                                                                        }), 
+                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/Tyler9937/Tanzanian-Ministry-of-Water-Dataset-App', style={
+                                                                                                                        "padding-top": "2px",
+                                                                                                                        "padding-right": "2px",
+                                                                                                                        "padding-bottom": "2px",
+                                                                                                                        "padding-left": "2px",
+                                                                                                                        "color": "rgb(17,157,255)"
+                                                                                                                        }), 
+                    html.A(html.I(className='fab fa-linkedin mr-1'), href='https://www.linkedin.com/in/tyler-russin/', style={
+                                                                                                                        "padding-top": "2px",
+                                                                                                                        "padding-right": "2px",
+                                                                                                                        "padding-bottom": "2px",
+                                                                                                                        "padding-left": "2px",
+                                                                                                                        "color": "rgb(17,157,255)"
+                                                                                                                        }), 
                 ], 
                 className='lead'
             )
@@ -68,13 +84,13 @@ def display_page(pathname):
         return index.layout
     elif pathname == '/predictions':
         return predictions.layout
-    elif pathname == '/insights':
-        return insights.layout
+    elif pathname == '/competition':
+        return competition.layout
     elif pathname == '/process':
         return process.layout
     else:
         return dcc.Markdown('## Page not found')
 
-# Run app server: https://dash.plot.ly/getting-started
+# Run app
 if __name__ == '__main__':
     app.run_server(debug=True)

@@ -54,5 +54,5 @@ meta_tags=[
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets, meta_tags=meta_tags)
 app.config.suppress_callback_exceptions = True # see https://dash.plot.ly/urls
-app.title = 'YOUR APP NAME' # appears in browser title bar
+app.title = 'Tanzanian Ministry of Water Data Analysis' # appears in browser title bar
 server = app.server
