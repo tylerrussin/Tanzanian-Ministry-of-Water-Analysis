@@ -3,17 +3,15 @@ import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
-
 from joblib import load, dump
-
-
 
 # Imports from this application
 from app import app
 
+# Importing pickled model
 model = load('./assets/model/TMWRandomForest.joblib')
 
-# Creating sliders for data input
+# Creating sliders and dropdown for data input
 gps_height_slider = html.Div(
     [
         dbc.Label("GPS Height", html_for="slider"),
@@ -104,6 +102,7 @@ def display_page(gps_height, longitude, latitude, quantity, years_in_service):
     # Predicts on user input
     output = model.predict(data)
 
+    # Changing from numeric prediction to string
     pip_dic = {
         0: 'functional',
         1: 'functional needs repair',
