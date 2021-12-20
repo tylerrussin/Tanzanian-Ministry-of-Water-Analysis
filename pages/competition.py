@@ -55,6 +55,4 @@ column1 = dbc.Col(
     ],
 )
 
-# ![pairplot](./assets/pairplot.png "pairplot")
-
 layout = dbc.Row([column1])
