@@ -108,7 +108,7 @@ column1 = dbc.Col(
             - waterpoint_type - 6380 labeld as other (categorical 7 cats)
             - status_group - no missing values
 
-            ![missingno](./assets/missingno.png "missingno")
+            ![missingno](./assets/img/missingno.png "missingno")
 
             ### Encoding missing values
 
@@ -132,7 +132,7 @@ column1 = dbc.Col(
 
             Our approach for doing this was the mapping of our features onto sin and cosine waves which was found to be effective. 
 
-            ![sincos](./assets/sincos.png "sincos")
+            ![sincos](./assets/img/sincos.png "sincos")
 
             **Years in Service**
 
@@ -214,19 +214,19 @@ column1 = dbc.Col(
 
             The top 5 important features found when predicting waterpipe functionality were GPS Height, Longitude, Latitude, Quantity, and Years in Service. These are the features used in our modified model in this demo web app. Also, the feature engineering of years in service provided to be important to the model's predictive abilities.
 
-            ![featureimportance](./assets/featureimportance.png "featureimportance")
+            ![featureimportance](./assets/img/featureimportance.png "featureimportance")
 
             **Confussion Matrix and Random Foresset**
 
             We found when it came to precision and recall the model performed okay but when looking at false classification percentages we see the model did struggle significantly with classifying water pipes as 'functional needs repair' and overall did poorly by predicting false positives.
 
-            ![confussionmatrix](./assets/confussionmatrix.png "confussionmatrix")
+            ![confussionmatrix](./assets/img/confussionmatrix.png "confussionmatrix")
 
             **ROC curve and Area Under the Curve Score**
 
             The Random Forest Model received a score of: 0.89
 
-            ![roc](./assets/roc.png "roc")
+            ![roc](./assets/img/roc.png "roc")
 
 
 
