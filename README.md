@@ -18,8 +18,8 @@ Graph of the Sine and Cosine DateTime mapping discussed in the feature engineeri
 
 Located in the “notebooks” directory of this repository are the following “.ipynb” files:
 
-TMW Dataset Analysis.ipynb
-TMW Dataset Modeling.ipynb
+- TMW Dataset Analysis.ipynb
+- TMW Dataset Modeling.ipynb
 
 These files explore the data analysis and predictive modeling aspects of this project. The “TMW Dataset Analysis.ipynb” file contains work on data wrangling and feature engineering. The “TMW Dataset Modeling.ipynb” contains work done on data preprocessing, hyperparameter tuning, and model analysis.
 
@@ -110,3 +110,7 @@ The [Gradient Boosting](https://scikit-learn.org/stable/modules/generated/sklear
 ```
 {'n_estimators': 150, 'learning_rate': 0.5}
 ```
+
+**Conclusion**
+
+For the competition and given the timeframe, a well-optimized model was created that is more than useful for solving the problem of predicting if a given waterpipe will be functional or not.
