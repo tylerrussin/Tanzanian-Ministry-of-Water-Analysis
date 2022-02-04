@@ -4,7 +4,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
-from app import app
+from app import app, server
 from pages import index, predictions
 
 # The navigation bar at the top of screen
