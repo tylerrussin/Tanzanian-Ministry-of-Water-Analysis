@@ -8,7 +8,7 @@ After analysis and modeling, the submitted model received an accuracy score of 0
 
 **Gallary**
 
-![](assets/img/gallery.png)
+![](assets/img/sincos.png)
 
 ### Usage
 
