@@ -1,15 +1,13 @@
-# Imports from 3rd party libraries
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 from joblib import load, dump
 
-# Imports from this application
 from app import app
 
 # Importing pickled model
-model = load('./assets/model/TMWRandomForest.joblib')
+model = load('./assets/pickled models/TMWRandomForest.joblib')
 
 # Creating sliders and dropdown for data input
 gps_height_slider = html.Div(
@@ -56,6 +54,7 @@ years_in_service_slider = html.Div(
     ]
 )
 
+# Component for displaying text and user inputs
 column1 = dbc.Col(
     [
         dcc.Markdown(
@@ -77,6 +76,7 @@ column1 = dbc.Col(
     md=4,
 )
 
+# Component fo displaying model outputs
 column2 = dbc.Col(
     [
         html.H1("Predicted Status of Waterpipe...", style={"text-align": "center", "color": "rgb(108,108,108)"}),
@@ -85,8 +85,10 @@ column2 = dbc.Col(
     ],
 )
 
+# Returns layout to be rendered on web page
 layout = dbc.Row([column1, column2])
 
+# Callback for handeling user inputs
 @app.callback(
     Output('output', 'children'),
     [Input('gps_height_slider', 'value'),

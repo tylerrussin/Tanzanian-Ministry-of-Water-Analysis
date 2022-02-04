@@ -1,21 +1,18 @@
-# Imports from 3rd party libraries
 import dash
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
-# Imports from this application
-from app import app, server
-from pages import index, predictions, competition, process
+from app import app
+from pages import index, predictions
 
+# The navigation bar at the top of screen
 navbar = dbc.NavbarSimple(
-    brand='Tanzanian Ministry of Water Data Analysis',
+    brand='Tanzanian Ministry of Water Predictive Model',      # Redirects to landing page
     brand_href='/', 
     children=[
-        dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')), 
-        dbc.NavItem(dcc.Link('Competition', href='/competition', className='nav-link')), 
-        dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link')), 
+        dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')),    # The predictive model page 
     ],
     sticky='top',
     color='light', 
@@ -23,18 +20,15 @@ navbar = dbc.NavbarSimple(
     dark=False
 )
 
-# Footer docs:
-# dbc.Container, dbc.Row, dbc.Col: https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
-# html.P: https://dash.plot.ly/dash-html-components
-# fa (font awesome) : https://fontawesome.com/icons/github-square?style=brands
-# mr (margin right) : https://getbootstrap.com/docs/4.3/utilities/spacing/
-# className='lead' : https://getbootstrap.com/docs/4.3/content/typography/#lead
+# The footer at the bottom of the screen
 footer = dbc.Container(
     dbc.Row(
         dbc.Col(
             html.P(
                 [
                     html.Span('Tyler Russin', className='mr-2'),
+
+                    # Twitter URL
                     html.A(html.I(className='fab fa-twitter mr-1'), href='https://twitter.com/tyler_russin', style={
                                                                                                                     "padding-top": "2px",
                                                                                                                     "padding-right": "2px",
@@ -42,6 +36,7 @@ footer = dbc.Container(
                                                                                                                     "padding-left": "2px",
                                                                                                                     "color": "rgb(17,157,255)"
                                                                                                                     }),
+                    # Linkedin URL
                     html.A(html.I(className='fab fa-linkedin mr-1'), href='https://www.linkedin.com/in/tyler-russin/', style={
                                                                                                                             "padding-top": "2px",
                                                                                                                             "padding-right": "2px",
@@ -49,13 +44,15 @@ footer = dbc.Container(
                                                                                                                             "padding-left": "2px",
                                                                                                                             "color": "rgb(17,157,255)"
                                                                                                                             }),
+                    # GitHub URL
                     html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/tylerrussin/Tanzanian-Ministry-of-Water-Analysis', style={
                                                                                                                                                             "padding-top": "2px",
                                                                                                                                                             "padding-right": "2px",
                                                                                                                                                             "padding-bottom": "2px",
                                                                                                                                                             "padding-left": "2px",
                                                                                                                                                             "color": "rgb(17,157,255)"
-                                                                                                                                                            }),    
+                                                                                                                                                            }),
+                    # Personal Email    
                     html.A(html.I(className='fas fa-envelope-square mr-1'), href='mailto:tylerrussin2@gmail.com', style={
                                                                                                                         "padding-top": "2px",
                                                                                                                         "padding-right": "2px",
@@ -72,10 +69,7 @@ footer = dbc.Container(
     )
 )
 
-# Layout docs:
-# html.Div: https://dash.plot.ly/getting-started
-# dcc.Location: https://dash.plot.ly/dash-core-components/location
-# dbc.Container: https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
+# Define layout of the page
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False), 
     navbar, 
@@ -85,7 +79,7 @@ app.layout = html.Div([
 ])
 
 
-# URL Routing for Multi-Page Apps: https://dash.plot.ly/urls
+# URL Routing for the multiple pages of the app
 @app.callback(Output('page-content', 'children'),
               [Input('url', 'pathname')])
 def display_page(pathname):
@@ -93,10 +87,6 @@ def display_page(pathname):
         return index.layout
     elif pathname == '/predictions':
         return predictions.layout
-    elif pathname == '/competition':
-        return competition.layout
-    elif pathname == '/process':
-        return process.layout
     else:
         return dcc.Markdown('## Page not found')
 

@@ -1,4 +1,3 @@
-# Imports from 3rd party libraries
 import dash
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
@@ -7,11 +6,9 @@ from dash.dependencies import Input, Output
 import plotly.express as px
 import pandas as pd
 
-# Imports from this application
 from app import app
 
-# 2 column layout. 1st column width = 4/12
-# https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
+# Component to display markdown on left of screen
 column1 = dbc.Col(
     [
         dcc.Markdown(
@@ -19,9 +16,7 @@ column1 = dbc.Col(
         
             ## Looking into Classification
 
-            In this web application, we explore the key concepts of Data Wrangling and Classification. Scoring metrics such as Precision/Recall and ROC AUC scores are utilized. Pipeline building techniques associated with Data Preprocessing, Hyperparameter Tuning, and Cross-Validation are implemented.
-
-            This application describes the competition that was entered, the process for  how modeling was done, and has an interactive model demo
+            This web application demonstrates the classification of Tanzanian water pipes through the use of a Random Forest Classification model. To create the predictive model an in-depth data analysis, hyperparameter tuning, and a model analysis including feature importances, precision/recall, and ROC AUC scores were conducted. The model performs with an accuracy score of 80 percent.
 
             """
         ),
@@ -29,18 +24,20 @@ column1 = dbc.Col(
     ],
     md=4,
 )
-import plotly.express as px
+
+# Creating the Longitude/Latitude scatter plot
 y = pd.read_csv('./assets/data/dependent_vars.csv')
 X = pd.read_csv('./assets/data/independent_vars.csv')
 df = X.merge(y, on='id')
 df = df[df['longitude'] > 10]
 fig = px.scatter(df, x='longitude', y='latitude', color='status_group')
 
-
+# Component to display scatter plot
 column2 = dbc.Col(
     [
         dcc.Graph(figure=fig),
     ]
 )
 
+# Returns layout to be rendered on web page
 layout = dbc.Row([column1, column2])
