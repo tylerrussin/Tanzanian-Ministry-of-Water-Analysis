@@ -18,8 +18,8 @@ Graph of the Sine and Cosine DateTime mapping discussed in the feature engineeri
 
 Located in the “notebooks” directory of this repository are the following “.ipynb” files:
 
-- TMW Dataset Analysis.ipynb
-- TMW Dataset Modeling.ipynb
+TMW Dataset Analysis.ipynb
+TMW Dataset Modeling.ipynb
 
 These files explore the data analysis and predictive modeling aspects of this project. The “TMW Dataset Analysis.ipynb” file contains work on data wrangling and feature engineering. The “TMW Dataset Modeling.ipynb” contains work done on data preprocessing, hyperparameter tuning, and model analysis.
 
@@ -79,33 +79,33 @@ In order for different predictive model outputs to be compared the data fed into
 
 Before a given model’s score can be compared against other models a process of hyperparameter tuning needs to be conducted to ensure that each model architecture is tuned to best handle the dataset. The tuning process is different for each model and involves brute force testing of the model's different parameters. The parameters that return the highest accuracy score for the data are used. The classification model architectures tested in this analysis are Decision Trees, Random Forests, Logistic Regression, ADA Boosting, and Gradient Boosting. The highest scoring model after hyperparameter tuning is the Random Forest Classifier.
 
-The [Decision Tree](https://scikit-learn.org/stable/modules/tree.html) model architecture was found to have a highest accuracy score of 76 percent when the tested input parameters are set at the following:
+The [Decision Tree](https://scikit-learn.org/stable/modules/tree.html) model architecture was found to have a highest accuracy score of **76 percent** when the tested input parameters are set at the following:
 
 ```
  {'splitter': 'best', 'min_samples_leaf': 3, 'max_leaf_nodes': None,
   'max_features': None, 'max_depth': 21, 'criterion': 'entropy'}
 ```
 
-The [Random Forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) model architecture was found to have a highest accuracy score of 80% when the tested input parameters are set at the following:
+The [Random Forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) model architecture was found to have a highest accuracy score of **80 percent** when the tested input parameters are set at the following:
 
 ```
 {'warm_start': False, 'n_jobs': 2, 'n_estimators': 31, 
  'max_samples': None, 'max_features': 'sqrt', 'criterion': 'entropy'}
 ```
 
-The [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) model architecture was found to have a highest accuracy score of 59% when the tested input parameters are set at the following:
+The [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) model architecture was found to have a highest accuracy score of **59 percent** when the tested input parameters are set at the following:
 
 ```
 {'penalty': 'l2'}
 ```
 
-The [ADA Boosting](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html) model architecture was found to have a highest accuracy score of 69% when the tested input parameters are set at the following:
+The [ADA Boosting](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html) model architecture was found to have a highest accuracy score of **69 percent** when the tested input parameters are set at the following:
 
 ```
 {'n_estimators': 11, 'learning_rate': 1.5, 'algorithm': 'SAMME.R'}
 ```
 
-The [Gradient Boosting](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html) model architecture was found to have a highest accuracy score of 77% when the tested input parameters are set at the following:
+The [Gradient Boosting](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html) model architecture was found to have a highest accuracy score of **77 percent** when the tested input parameters are set at the following:
 
 ```
 {'n_estimators': 150, 'learning_rate': 0.5}
