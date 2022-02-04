@@ -16,8 +16,8 @@ After analysis and modeling, the submitted model received an accuracy score of 0
 
 Located in the “notebooks” directory of this repository are the following “.ipynb” files:
 
-TMW Dataset Analysis.ipynb
-TMW Dataset Modeling.ipynb
+- TMW Dataset Analysis.ipynb
+- TMW Dataset Modeling.ipynb
 
 These files explore the data analysis and predictive modeling aspects of this project. The “TMW Dataset Analysis.ipynb” file contains work on data wrangling and feature engineering. The “TMW Dataset Modeling.ipynb” contains work done on data preprocessing, hyperparameter tuning, and model analysis.
 
