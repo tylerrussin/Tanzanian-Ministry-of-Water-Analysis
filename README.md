@@ -10,14 +10,16 @@ After analysis and modeling, the submitted model received an accuracy score of 0
 
 ![](assets/img/sincos.png)
 
+Graph of the Sine and Cosine DateTime mapping discussed in the feature engineering section of this readme
+
 ### Usage
 
 **Python Notebooks**
 
 Located in the “notebooks” directory of this repository are the following “.ipynb” files:
 
-- TMW Dataset Analysis.ipynb
-- TMW Dataset Modeling.ipynb
+TMW Dataset Analysis.ipynb
+TMW Dataset Modeling.ipynb
 
 These files explore the data analysis and predictive modeling aspects of this project. The “TMW Dataset Analysis.ipynb” file contains work on data wrangling and feature engineering. The “TMW Dataset Modeling.ipynb” contains work done on data preprocessing, hyperparameter tuning, and model analysis.
 
@@ -80,13 +82,15 @@ Before a given model’s score can be compared against other models a process of
 The [Decision Tree](https://scikit-learn.org/stable/modules/tree.html) model architecture was found to have a highest accuracy score of 76 percent when the tested input parameters are set at the following:
 
 ```
- {'splitter': 'best', 'min_samples_leaf': 3, 'max_leaf_nodes': None, 'max_features': None, 'max_depth': 21, 'criterion': 'entropy'}
+ {'splitter': 'best', 'min_samples_leaf': 3, 'max_leaf_nodes': None,
+  'max_features': None, 'max_depth': 21, 'criterion': 'entropy'}
 ```
 
 The [Random Forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) model architecture was found to have a highest accuracy score of 80% when the tested input parameters are set at the following:
 
 ```
-{'warm_start': False, 'n_jobs': 2, 'n_estimators': 31, 'max_samples': None, 'max_features': 'sqrt', 'criterion': 'entropy'}
+{'warm_start': False, 'n_jobs': 2, 'n_estimators': 31, 
+ 'max_samples': None, 'max_features': 'sqrt', 'criterion': 'entropy'}
 ```
 
 The [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) model architecture was found to have a highest accuracy score of 59% when the tested input parameters are set at the following:
