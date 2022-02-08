@@ -110,7 +110,3 @@ The [Gradient Boosting](https://scikit-learn.org/stable/modules/generated/sklear
 ```
 {'n_estimators': 150, 'learning_rate': 0.5}
 ```
-
-**Conclusion**
-
-For the competition and given the timeframe, a well-optimized model was created that is more than useful for solving the problem of predicting if a given waterpipe will be functional or not.
