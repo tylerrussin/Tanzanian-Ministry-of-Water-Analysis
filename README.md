@@ -2,11 +2,11 @@
 
 ### Introduction to the Competition
 
-Hosted by DrivenData the competition entered asks given data from Taarifa and the Tanzanian Ministry of Water predict whether or not a water pipe will be functional, functional needs some repairs, or non-functional. The initial inspiration of this competition came from a real need to distribute Tanzania’s limited resources to repair pipes that are in the most critical condition and limit the number of resources used on water pipes likely to still be functional.
+Hosted by DrivenData the competition entered asks given data from Taarifa and the Tanzanian Ministry of Water to predict whether or not a water pipe will be functional, functional and needs some repairs, or non-functional. The initial inspiration for this competition came from a real need to distribute Tanzania’s limited resources to repair pipes that are in the most critical condition, and limit the number of resources used on water pipes likely to still be functional.
 
 After analysis and modeling, the submitted model received an accuracy score of 0.8036 ranking it at 2818 out of 12798 competitors. The competition can be found on DrivenData [Here](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/)
 
-**Gallary**
+**Gallery**
 
 ![](assets/img/sincos.png)
 
@@ -18,10 +18,10 @@ Graph of the Sine and Cosine DateTime mapping discussed in the feature engineeri
 
 Located in the “notebooks” directory of this repository are the following “.ipynb” files:
 
-TMW Dataset Analysis.ipynb
-TMW Dataset Modeling.ipynb
+-	TMW Dataset Analysis.ipynb
+-	TMW Dataset Modeling.ipynb
 
-These files explore the data analysis and predictive modeling aspects of this project. The “TMW Dataset Analysis.ipynb” file contains work on data wrangling and feature engineering. The “TMW Dataset Modeling.ipynb” contains work done on data preprocessing, hyperparameter tuning, and model analysis.
+These files explore the data analysis and predictive modeling aspects of this project. The “TMW Dataset Analysis.ipynb” file contains work on data wrangling and feature engineering. The “TMW Dataset Modeling.ipynb” contains work done on data pre-processing, hyperparameter tuning, and model analysis.
 
 **The Interactive Model**
 
@@ -43,7 +43,7 @@ The use of field agents to record observations of each water pipe creates incons
 
 **Dropping Values**
 
-The process for identifying repetitive features is manual involving the comparison of value counts between each column. Features such as source, source_type, and source_class after inspection are found to be similar and the small differences in their content do not justify the extra dimensionality created by leaving them in the dataset. In cases such as this only one of the features is kept and the rest are removed from the dataset. With aid from the pandas and missingno libraries, the process for identifying missing values proved successful. Features found to have more than 50 percent of its observations missing were also removed from the dataset. Of the original 41 features, 22 features were removed based on repetitiveness and missing values.
+The process for identifying repetitive features is manual and involves the comparison of value counts between each column. Features such as source, source_type, and source_class after inspection are found to be similar and the small differences in their content do not justify the extra dimensionality created by leaving them in the dataset. In cases such as this only one of the features is kept and the rest are removed from the dataset. With aid from the pandas and missing no libraries, the process for identifying missing values proved successful. Features found to have more than 50 percent of its observations missing were also removed from the dataset. Of the original 41 features, 22 features were removed based on repetitiveness and missing values.
 
 **Numerical Features**
 
@@ -55,11 +55,11 @@ Eleven of the remaining nineteen features are categorical, this includes the tar
 
 **Feature Engineering**
 
-Complex features are created through the process of modifying or combining existing features. The result of feature engineering transforms the Tanzanian dataset into a dense dataset containing more specialized information for analysis and modeling. Features created are ones that result from the breakdown of the DateTime column to express the cyclical nature of its values, as well as the years since constructed column.
+Complex features are created through the process of modifying or combining existing features. The result of feature engineering transforms the Tanzanian dataset into a dense dataset containing more specialized information for analysis and modeling. Features created result from the breakdown of the DateTime column to express the cyclical nature of its values, as well as the years since constructed column.
 
 **DateTime**
 
-The DateTime feature after formatting contains information on the date of when a water pipe was last observed by a field agent. One issue that arises from the DateTime object is a lack of connection between values that describe the beginning of a calendar date and values that are towards the end of a calendar date (the cycling nature of calenders 1-30 for days, 1-12 for months). An observation witnessed at the end of the year and one at the beginning of the year do not have a strong link, the observations are separated numerically by twelve months when it needs to be shown that separation is only by one month. To solve this the DateTime feature can be mapped onto sine and cosine waves to represent the cyclical nature of the dates.
+The DateTime feature after formatting contains information on the date of when a water pipe was last observed by a field agent. One issue that arises from the DateTime object is a lack of connection between values that describe the beginning of a calendar date and values that are towards the end of a calendar date (the cycling nature of calendars 1-30 for days, 1-12 for months). An observation witnessed at the end of the year and one at the beginning of the year do not have a strong link, the observations are separated numerically by twelve months when it needs to be shown that separation is only by one month. To solve this the DateTime feature can be mapped onto sine and cosine waves to represent the cyclical nature of the dates.
 
 **Years Since Constructed**
 
@@ -69,15 +69,15 @@ Taking the year that the water pipe was originally constructed and the date that
 
 **Baseline Model**
 
-To benchmark progress with predictive modeling, a baseline model is initialized to be compared to more complex modeling processes. For the baseline model, the values of the target feature in the dataset are counted (function, non-functional). The target feature was found to have 61 percent of its values as “functional” and 39 percent of its values as “non-functional”. Given this, the minimum score of the baseline model is 61 percent accuracy if a model was created that always assumed a water pump is functional.
+To benchmark progress with predictive modeling, a baseline model is initialized to be compared to more complex modeling processes. For the baseline model, the values of the target feature in the dataset are counted (function, non-functional). The target feature was found to have 61 percent of its values as “functional” and 39 percent of its values as “non-functional”. Given this, the minimum score of the baseline model is 61 percent accuracy if a model was created that always assumes a water pump is functional.
 
 **Data Preprocessing Pipeline**
 
-In order for different predictive model outputs to be compared the data fed into each model needs to be standardized so that differences in model scores are from model architecture and not from differences in the data. Durning the dataset analysis several data wrangling techniques were used to understand the information. For predictive modeling, the data wrangling processes used during analysis are adopted into a data preprocessing pipeline. The pipeline takes in raw data from the Tanzanian Ministry of Water and processes it to no longer have NaN values, drops unneeded features, encodes values, and creates new features. The dataset after preprocessing exists in a standardized format.
+In order for different predictive model outputs to be compared, the data fed into each model needs to be standardized so that differences in model scores are from model architecture and not from differences in the data. During the dataset analysis, several data wrangling techniques were used to understand the information. For predictive modeling, the data wrangling processes used during analysis are adopted into a data pre-processing pipeline. The pipeline takes in raw data from the Tanzanian Ministry of Water and processes it to no longer have NaN values, drops unnecessary features, encodes values, and creates new features. The dataset after pre-processing exists in a standardized format.
 
 **Hyperparameter Tuning**
 
-Before a given model’s score can be compared against other models a process of hyperparameter tuning needs to be conducted to ensure that each model architecture is tuned to best handle the dataset. The tuning process is different for each model and involves brute force testing of the model's different parameters. The parameters that return the highest accuracy score for the data are used. The classification model architectures tested in this analysis are Decision Trees, Random Forests, Logistic Regression, ADA Boosting, and Gradient Boosting. The highest scoring model after hyperparameter tuning is the Random Forest Classifier.
+Before a given model’s score can be compared against other models, a process of hyperparameter tuning needs to be conducted to ensure that each model architecture is tuned to best handle the dataset. The tuning process is different for each model and involves brute force testing of the model's different parameters. The parameters that return the highest accuracy score for the data are used. The classification model architectures tested in this analysis are Decision Trees, Random Forests, Logistic Regression, ADA Boosting, and Gradient Boosting. The highest scoring model after hyperparameter tuning is the Random Forest Classifier.
 
 The [Decision Tree](https://scikit-learn.org/stable/modules/tree.html) model architecture was found to have a highest accuracy score of **76 percent** when the tested input parameters are set at the following:
 
