@@ -27,6 +27,8 @@ These files explore the data analysis and predictive modeling aspects of this pr
 
 For demonstration purposes, the work done in the python notebooks has been implemented into an interactive dash web application hosted on Heroku servers. The web application hosts a modified predictive Random Forest Classification model that outputs if a water pipe is functional, functional needs repairs, or non-functional given how the website user adjusts the input sliders. The structure of the dash application is set up where the “run.py” file houses all components laid out on the web page. “App.py” hosts the server and stylesheet. The pages directory hosts the “index.py” and “predictions.py” files that return layouts to the “run.py” file.
 
+**Please allow roughly 30 seconds for the server to boot up when clicking the link below**
+
 The deployed predictive model can be interacted with [Here](https://tanzanian-waterpipe-analysis.herokuapp.com/)
 
 # Overview of the Tanzanian Water Pipe Data Analysis and Predictive Modeling Process
